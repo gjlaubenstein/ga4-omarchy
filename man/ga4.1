@@ -1,0 +1,67 @@
+.TH GA4 1 "September 2026" "ga4-omarchy 0.1.0" "User Commands"
+.SH NAME
+ga4 \- Google Analytics 4 terminal dashboard for Omarchy
+.SH SYNOPSIS
+.B ga4
+.br
+.B ga4 auth login --client-secret
+.I PATH
+.br
+.B ga4 properties
+[\fB--json\fR]
+.br
+.B ga4 export --property
+.I ID
+.B --start
+.I DATE
+.B --end
+.I DATE
+.B --format
+.I csv|json
+[\fB--output\fR \fIPATH\fR]
+.br
+.B ga4 doctor
+[\fB--json\fR]
+.SH DESCRIPTION
+.B ga4
+is a keyboard-driven GA4 dashboard. Historical reports are cached locally for
+fifteen minutes; OAuth tokens are stored only in the system keyring.
+.SH AUTHENTICATION
+Create a Google Desktop OAuth client with the Analytics Data and Admin APIs
+enabled, then run:
+.PP
+.B ga4 auth login --client-secret client_secret.json
+.PP
+Only the analytics.readonly scope is requested.
+.SH TUI KEYS
+.TP
+.B 1, 2
+Switch between Overview and Realtime.
+.TP
+.B Left, Right
+Move the selected historical date range.
+.TP
+.B [, ]
+Change the date-range preset.
+.TP
+.B Tab, j, k, Enter, Esc
+Move focus and selection, drill in, or go back.
+.TP
+.B /, c, p, d, r, e
+Filter, compare, select property, enter dates, refresh, or export.
+.TP
+.B ?, q
+Show help or quit.
+.SH FILES
+.TP
+.I ~/.config/ga4-omarchy/config.toml
+Preferences without credentials.
+.TP
+.I ~/.config/ga4-omarchy/oauth-client.json
+User-provided Desktop OAuth client definition, mode 0600.
+.TP
+.I ~/.cache/ga4-omarchy/reports/
+Aggregated historical report cache.
+.SH EXIT STATUS
+0 success; 2 invalid input; 3 authentication required; 4 API configuration or
+permission failure; 5 quota limited; 6 network or server failure.

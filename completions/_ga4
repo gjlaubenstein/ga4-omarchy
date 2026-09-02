@@ -1,0 +1,7 @@
+#compdef ga4
+_arguments '1:command:(auth properties export cache doctor)' '*::arg:->args'
+case $words[2] in
+  auth) _values 'auth command' login status logout ;;
+  cache) _values 'cache command' clear ;;
+  export) _arguments '--property[GA4 property ID]:' '--start[start date YYYY-MM-DD]:' '--end[end date YYYY-MM-DD]:' '--format[output format]:(csv json)' '--output[output path]:_files' '--comparison[include previous period]:(true false)' ;;
+esac

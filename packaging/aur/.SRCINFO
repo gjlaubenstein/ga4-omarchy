@@ -1,0 +1,17 @@
+pkgbase = ga4-omarchy
+	pkgdesc = Google Analytics 4 terminal dashboard for Omarchy
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/gjlaubenstein/ga4-omarchy
+	arch = x86_64
+	license = GPL-3.0-only
+	makedepends = cargo
+	makedepends = rust
+	depends = gcc-libs
+	depends = glibc
+	depends = omarchy
+	depends = org.freedesktop.secrets
+	source = ga4-omarchy-0.1.0.tar.gz::https://github.com/gjlaubenstein/ga4-omarchy/archive/refs/tags/v0.1.0.tar.gz
+	sha256sums = SKIP
+
+pkgname = ga4-omarchy

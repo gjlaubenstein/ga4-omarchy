@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=GA4 Analytics
+Comment=Google Analytics 4 dashboard for Omarchy
+Exec=omarchy-launch-or-focus-tui --app-id=org.omarchy.ga4 ga4
+Terminal=false
+Type=Application
+Icon=org.omarchy.ga4
+Categories=Utility;
+Keywords=analytics;ga4;dashboard;tui;
+StartupNotify=true

@@ -1,0 +1,41 @@
+# Maintainer: ga4-omarchy contributors
+pkgname=ga4-omarchy
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Google Analytics 4 terminal dashboard for Omarchy'
+arch=('x86_64')
+url='https://github.com/gjlaubenstein/ga4-omarchy'
+license=('GPL-3.0-only')
+depends=('gcc-libs' 'glibc' 'omarchy' 'org.freedesktop.secrets')
+makedepends=('cargo' 'rust')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+# Replace SKIP with the published source archive SHA-256 before the first AUR push.
+sha256sums=('SKIP')
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+}
+
+build() {
+  cd "$pkgname-$pkgver"
+  cargo build --frozen --release
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+  cargo test --frozen
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 target/release/ga4 "$pkgdir/usr/bin/ga4"
+  install -Dm644 assets/org.omarchy.ga4.desktop "$pkgdir/usr/share/applications/org.omarchy.ga4.desktop"
+  install -Dm644 assets/org.omarchy.ga4.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/org.omarchy.ga4.svg"
+  install -Dm644 man/ga4.1 "$pkgdir/usr/share/man/man1/ga4.1"
+  install -Dm644 completions/ga4.bash "$pkgdir/usr/share/bash-completion/completions/ga4"
+  install -Dm644 completions/_ga4 "$pkgdir/usr/share/zsh/site-functions/_ga4"
+  install -Dm644 completions/ga4.fish "$pkgdir/usr/share/fish/vendor_completions.d/ga4.fish"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}

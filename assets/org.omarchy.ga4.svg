@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">GA4 terminal chart</title>
+  <rect width="128" height="128" rx="24" fill="#1a1b26"/>
+  <path d="M25 24h78a9 9 0 0 1 9 9v62a9 9 0 0 1-9 9H25a9 9 0 0 1-9-9V33a9 9 0 0 1 9-9Z" fill="none" stroke="#7aa2f7" stroke-width="7"/>
+  <path d="m30 43 11 9-11 9M47 63h18" fill="none" stroke="#c0caf5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 83V68m15 15V56" fill="none" stroke="#9ece6a" stroke-width="9" stroke-linecap="round"/>
+</svg>
